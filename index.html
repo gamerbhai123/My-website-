@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>380 UC Free - 3 Step Rewards</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://i.imgur.com/9p0vD2I.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      margin: 30px;
+      border-radius: 15px;
+    }
+    h1 {
+      color: #ffd700;
+      font-size: 40px;
+    }
+    .step {
+      margin: 30px 0;
+    }
+    .btn {
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #f39c12;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+    .success {
+      color: #00ff00;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>380 UC FREE</h1>
+    <p>Claim your rewards in three easy steps</p>
+
+    <div class="step">
+      <h2>Step 1</h2>
+      <p>Download this app (required)</p>
+      <a href="https://rooter.onelink.me/XYZ" target="_blank">
+        <button class="btn">Download Now</button>
+      </a>
+    </div>
+
+    <div class="step">
+      <h2>Step 2</h2>
+      <p>Complete a verification task<br>(Captcha + Location check)</p>
+      <button class="btn" onclick="alert('Verification Failed! Try Again.')">Verify Now</button>
+    </div>
+
+    <div class="step">
+      <h2>Step 3</h2>
+      <p>Enter your PUBG/BGMI UID</p>
+      <input type="text" id="uid" placeholder="Enter your UID">
+      <button class="btn" onclick="showSuccess()">Submit</button>
+      <p class="success" id="successMessage" style="display:none;">Success! You will receive 380 UC in 48 hours.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSuccess() {
+      const uid = document.getElementById("uid").value;
+      if (uid.trim() === "") {
+        alert("Please enter your UID");
+      } else {
+        document.getElementById("successMessage").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
