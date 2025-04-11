@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rooter Reward Steps</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      display: block;
+    }
+    #popup, #verifyPopup {
+      display: none;
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Step 1: Download Rooter</h2>
+  <button id="downloadBtn" onclick="markDownload()">Download Now</button>
+
+  <h2>Step 2: Verify</h2>
+  <button id="verifyBtn" onclick="showVerifyPopup()">Verify Now</button>
+
+  <div id="verifyPopup">
+    <div style="font-size: 30px; color: green;">✓</div>
+    <p>Verify Successful!</p>
+    <button onclick="closeVerifyPopup()">OK</button>
+  </div>
+
+  <h2>Step 3: Submit UID</h2>
+  <input type="text" id="uidInput" placeholder="Enter your UID" />
+  <button id="submitBtn" onclick="submitUID()">Submit</button>
+  <p id="timerText">Reward will be sent within <span id="timer">5 hours</span>.</p>
+
+  <script>
+    // Step 1 logic
+    window.onload = function () {
+      if (localStorage.getItem("rooterDownloaded") === "true") {
+        document.getElementById("downloadBtn").style.backgroundColor = "green";
+        document.getElementById("downloadBtn").style.color = "#fff";
+      }
+    };
+
+    function markDownload() {
+      localStorage.setItem("rooterDownloaded", "true");
+      window.location.href = "https://rooter.onelink.me/s3Ke/gamerox";
+    }
+
+    // Step 2 logic
+    function showVerifyPopup() {
+      document.getElementById("verifyPopup").style.display = "block";
+    }
+
+    function closeVerifyPopup() {
+      document.getElementById("verifyPopup").style.display = "none";
+      document.getElementById("verifyBtn").style.backgroundColor = "green";
+      document.getElementById("verifyBtn").style.color = "#fff";
+    }
+
+    // Step 3 logic
+    function submitUID() {
+      const uid = document.getElementById("uidInput").value.trim();
+      if (uid !== "") {
+        alert("UID submitted successfully!");
+        document.getElementById("submitBtn").style.backgroundColor = "green";
+        document.getElementById("submitBtn").style.color = "#fff";
+        document.getElementById("timer").textContent = "5 hours";
+      } else {
+        alert("Please enter your UID.");
+      }
+    }
+  </script>
+
+</body>
+</html>
